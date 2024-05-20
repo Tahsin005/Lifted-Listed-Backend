@@ -42,3 +42,56 @@ class TransactionSerializer(serializers.ModelSerializer):
         transaction = Transaction.objects.create(account=account, amount=amount)
         print(transaction)
         return transaction
+    
+class ProductBuySerializer(serializers.Serializer):
+    product_id = serializers.IntegerField()
+    user_id = serializers.IntegerField()
+    
+    def validate(self, data):
+        product_id = data.get('product_id')
+        user_id = data.get('user_id')
+        
+        try:
+            product = Product.objects.get(id=product_id)
+        except Product.DoesNotExist:
+            raise serializers.ValidationError({'error' : 'Product does not exist'})
+        
+        if product.bought_by:
+            raise serializers.ValidationError({'error' : 'Product has already been bought'})
+        
+        try:
+            user_account = UserAccount.objects.get(user_id=user_id)
+        except UserAccount.DoesNotExist:
+            raise serializers.ValidationError({'error' : 'User does not exist'})
+        
+        buying_cost = product.price
+        
+        if user_account.balance < buying_cost:
+            raise serializers.ValidationError({'error' : 'Insufficient balance'})
+        
+        data['product'] = product
+        data['user_account'] = user_account
+        data['buying_cost'] = buying_cost
+        
+        return data 
+    
+    def save(self):
+        product = self.validated_data['product']
+        user_account = self.validated_data['user_account']
+        buying_cost = self.validated_data['buying_cost']
+
+        with transaction.atomic():
+            product.bought_by_id = user_account.user_id 
+            
+            product.save()
+            
+            user_account.balance -= buying_cost
+            user_account.save(
+                update_fields = [
+                    'balance'
+                ]
+            )
+            
+            Transaction.objects.create(account=user_account, amount=buying_cost, balance_after_transaction=user_account.balance, transaction_type='Pay')
+        
+        return product
