@@ -31,8 +31,22 @@ DEBUG = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = ["*"]
-
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://shortlisted.onrender.com/',
+    'https://*.127.0.0.1',
+    'http://127.0.0.1:5500',
+]
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "x-requested-with",
+    "authorization",
+    "x-csrftoken",
+    "accept",
+    "accept-encoding",
+    "dnt",
+    "origin",
+    "user-agent",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,6 +68,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
