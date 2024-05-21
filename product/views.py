@@ -9,7 +9,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]
-    filter_fields = ['categories__slug', 'categories__name']
+    filterset_fields = ['categories__slug', 'categories__name']
     
     
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -20,4 +20,4 @@ class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     filter_backends = [DjangoFilterBackend]
-    filter_fields = ['product__id']
+    filterset_fields = ['product__id']
