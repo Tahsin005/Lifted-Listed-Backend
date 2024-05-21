@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from . models import Transaction
-from . serializers import TransactionSerializer
+from . serializers import TransactionSerializer, ProductBuySerializer
 from rest_framework.response import Response
 # Create your views here.
 
@@ -22,7 +22,7 @@ class TransactionAPIView(APIView):
 
 class ProductBuyAPIView(APIView):
     def post(self, request):
-        serializer = TransactionSerializer(data=request.data)
+        serializer = ProductBuySerializer(data=request.data)
         
         if serializer.is_valid():
             bought_product = serializer.save()

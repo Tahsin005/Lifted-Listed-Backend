@@ -86,11 +86,7 @@ class ProductBuySerializer(serializers.Serializer):
             product.save()
             
             user_account.balance -= buying_cost
-            user_account.save(
-                update_fields = [
-                    'balance'
-                ]
-            )
+            user_account.save(update_fields=['balance'])
             
             Transaction.objects.create(account=user_account, amount=buying_cost, balance_after_transaction=user_account.balance, transaction_type='Pay')
         
