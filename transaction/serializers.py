@@ -39,7 +39,7 @@ class TransactionSerializer(serializers.ModelSerializer):
         account.balance = new_balance
         validated_data['transaction_type'] = 'Deposit'
         
-        transaction = Transaction.objects.create(account=account, amount=amount)
+        transaction = Transaction.objects.create(account=account, amount=amount, balance_after_transaction=new_balance)
         print(transaction)
         return transaction
     
