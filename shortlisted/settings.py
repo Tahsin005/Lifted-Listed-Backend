@@ -124,6 +124,12 @@ DATABASES = {
         default='postgres://shortlisted_qm4p_user:BHbIeEstN7K4yU5pbEP4X34qWss6PcZS@dpg-cp5qjp4f7o1s739kmbc0-a.oregon-postgres.render.com/shortlisted_qm4p',
     )
 }
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ]
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
