@@ -1,8 +1,8 @@
 
-# Shortlisted Backend API
+# Listed & Lifted Backend API
 
 
-Welcome to the backend repository of Shortlisted, your premier online marketplace built with Django Rest Framework. This repository contains the codebase for the RESTful API that powers the backend functionality of the Shortlisted platform.
+Welcome to the backend repository of Listed & Lifted, your premier online marketplace built with Django Rest Framework. This repository contains the codebase for the RESTful API that powers the backend functionality of the Shortlisted platform.
 ## Features
 
 - **User Authentication:** Secure user authentication using Django's token-based authentication for accessing API endpoints.
