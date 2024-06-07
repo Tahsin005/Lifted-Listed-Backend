@@ -8,7 +8,6 @@ from rest_framework.response import Response
 class TransactionAPIView(APIView):
     def post(self, request):
         serializer = TransactionSerializer(data=request.data)
-        
         if serializer.is_valid():
             transaction = serializer.save()
             response_data = {
@@ -23,7 +22,6 @@ class TransactionAPIView(APIView):
 class ProductBuyAPIView(APIView):
     def post(self, request):
         serializer = ProductBuySerializer(data=request.data)
-        
         if serializer.is_valid():
             bought_product = serializer.save()
             

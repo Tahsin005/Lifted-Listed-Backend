@@ -10,7 +10,6 @@ class UserAccountSerializer(serializers.ModelSerializer):
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(required=True)
-    
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password']
@@ -45,7 +44,6 @@ class UserLoginSerializer(serializers.Serializer):
     
     
 class UserProfileUpdateSerializer(serializers.ModelSerializer):
-    
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
