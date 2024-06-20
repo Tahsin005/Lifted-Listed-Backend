@@ -41,5 +41,6 @@ Welcome to the backend repository of Listed & Lifted, your premier online market
 
 ## Live Link
 
+[Live Link](https://lifted-and-listed.netlify.app/)
 
 
