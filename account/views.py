@@ -37,7 +37,7 @@ class UserRegistrationSerializerViewSet(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             print('Uid', uid)
             
-            confirm_link = f"https://shortlisted.onrender.com/user/active/{uid}/{token}"
+            confirm_link = f"https://shortlisted-iol7.onrender.com/user/active/{uid}/{token}"
             
 
             email_subject = "Confirm Your Email"
