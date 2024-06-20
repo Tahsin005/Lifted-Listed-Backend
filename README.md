@@ -41,9 +41,5 @@ Welcome to the backend repository of Listed & Lifted, your premier online market
 
 ## Live Link
 
-<<<<<<< HEAD
-https://lifted-and-listed.netlify.app/
-=======
-[https://shortlisted.vercel.app/index.html](https://lifted-and-listed.netlify.app/)
->>>>>>> 65842da334e4e03813aa4110302e67655139790b
+
 
