@@ -86,10 +86,23 @@ WSGI_APPLICATION = 'shortlisted.wsgi.application'
 
 
 # Database
+
+
+# DATABASES = {
+#     'default': {
+#         #'ENGINE': 'django.db.backends.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgres://liftedlisted_user:NlhjiToRbbvP89bS7U92a0IjISsWxGcK@dpg-cppth7g8fa8c739lv1v0-a.oregon-postgres.render.com/liftedlisted',
+        default='postgresql://liftedlisted_zp9r_user:Z2Vr7ec63YySKv0EQQ1dhNN1iYDJv9mV@dpg-cqr7mutsvqrc73fqush0-a.oregon-postgres.render.com/liftedlisted_zp9r',
     )
 }
 # DATABASES = {
