@@ -14,7 +14,7 @@ Welcome to the backend repository of Listed & Lifted, your premier online market
 
 ## Getting Started
 
-1. Clone Repository: Clone this repository to your local machine using git clone https://github.com/Tahsin005/Shortlisted
+1. Clone Repository: Clone this repository to your local machine using git clone https://github.com/Tahsin005/Lifted-Listed-Backend
 
 2. Install Dependencies: Navigate to the project directory and install the required dependencies using pip install -r requirements.txt.
 
