@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'shortlisted.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://liftedlisted_zp9r_user:Z2Vr7ec63YySKv0EQQ1dhNN1iYDJv9mV@dpg-cqr7mutsvqrc73fqush0-a.oregon-postgres.render.com/liftedlisted_zp9r',
+        default='postgresql://lifted_listed_backend_user:mNDidMScwFx3zlzMOfMfUEj3WnJs2nXv@dpg-crfhdj5ds78s73cn25g0-a.oregon-postgres.render.com/lifted_listed_backend',
     )
 }
 # DATABASES = {
