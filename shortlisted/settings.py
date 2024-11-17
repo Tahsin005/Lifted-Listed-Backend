@@ -41,12 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
     'corsheaders',
-    
+
     'account',
     'product',
     'transaction',
@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'shortlisted.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://lifted_listed_backend_user:mNDidMScwFx3zlzMOfMfUEj3WnJs2nXv@dpg-crfhdj5ds78s73cn25g0-a.oregon-postgres.render.com/lifted_listed_backend',
+        default='postgresql://lifted_and_listed_user:pvSuM1xuhEgDMaPqoKBpTN5WiHPJHszZ@dpg-cst53p5umphs73fmdfng-a.oregon-postgres.render.com/lifted_and_listed',
     )
 }
 # DATABASES = {
