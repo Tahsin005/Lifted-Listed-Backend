@@ -51,19 +51,40 @@ class UserRegistrationSerializerViewSet(APIView):
             return Response('Check your email for confirmation')
         return Response(serializer.errors)
 
+from django.shortcuts import render
+from django.utils.http import urlsafe_base64_decode
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+
 def activate(request, uid64, token):
     try:
         uid = urlsafe_base64_decode(uid64).decode()
         user = User._default_manager.get(pk=uid)
-    except(User.DoesNotExist):
+    except User.DoesNotExist:
         user = None
 
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        return HttpResponse('Your account has been verified. You can now go to the login page to login')
+        html_content = """
+        <div style="font-family: Arial, sans-serif; text-align: center; padding: 20px; line-height: 1.6; background-color: #f8f9fa;">
+            <h1 style="color: #28a745; font-size: 36px;">🎉 Account Verified!</h1>
+            <p style="color: #6c757d; font-size: 18px;">Your account has been successfully verified.</p>
+            <p style="font-size: 16px; color: #6c757d;">You can now go to the login page to log in.</p>
+        </div>
+        """
+        return HttpResponse(html_content)
     else:
-        return HttpResponse('Your account has not been verified')
+        html_content = """
+        <div style="font-family: Arial, sans-serif; text-align: center; padding: 20px; line-height: 1.6; background-color: #f8f9fa;">
+            <h1 style="color: #dc3545; font-size: 36px;">❌ Verification Failed!</h1>
+            <p style="color: #6c757d; font-size: 18px;">Your account could not be verified.</p>
+            <p style="font-size: 16px; color: #6c757d;">Please try again or contact support for assistance.</p>
+        </div>
+        """
+        return HttpResponse(html_content)
+
 
 # Default one without a http response
 # def activate(request, uid64, token):
