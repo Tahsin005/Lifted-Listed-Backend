@@ -85,35 +85,13 @@ WSGI_APPLICATION = 'shortlisted.wsgi.application'
 
 
 # Database
-
-
-# DATABASES = {
-#     'default': {
-#         #'ENGINE': 'django.db.backends.sqlite3',
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': env("DB_NAME"),
-#         'USER': env("DB_USER"),
-#         'PASSWORD': env("DB_PASSWORD"),
-#         'HOST': env("DB_HOST"),
-#         'PORT': env("DB_PORT"),
-#     }
-# }
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
         default='postgresql://lifted_and_listed_user:pvSuM1xuhEgDMaPqoKBpTN5WiHPJHszZ@dpg-cst53p5umphs73fmdfng-a.oregon-postgres.render.com/lifted_and_listed',
     )
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': env("DB_NAME"),
-#         'USER': env("DB_USER"),
-#         'PASSWORD': env("DB_PASSWORD"),
-#         'HOST': env("DB_HOST"),
-#         'PORT': env("DB_PORT"),
-#     }
-# }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [

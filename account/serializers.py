@@ -13,7 +13,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password']
-    
+
     def save(self):
         username = self.validated_data['username']
         email = self.validated_data['email']
@@ -23,31 +23,28 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         password2 = self.validated_data['confirm_password']
         if password != password2:
             raise serializers.ValidationError({'error' : "Password doesn't match"})
-        
+
         if User.objects.filter(email=email).exists():
             raise serializers.ValidationError({'error' : "Email already exists"})
         user = User(username=username, email=email, first_name=first_name, last_name=last_name)
         print(user)
-        
+
         user.set_password(password)
         user.is_active = False
         user.save()
         UserAccount.objects.create(user=user, balance=0, account_no=int(user.id) + 1000)
         return user
-    
+
 class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
-    
-    
-    
-    
-    
+
+
 class UserProfileUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
-        
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if self.instance:
@@ -67,7 +64,7 @@ class UserProfileUpdateSerializer(serializers.ModelSerializer):
             user_account.save()
 
         return data
-    
+
 class PasswordChageSerializer(serializers.Serializer):
     user_id = serializers.IntegerField(required=True)
     old_password = serializers.CharField(write_only=True, required=True)
@@ -100,7 +97,7 @@ class PasswordChageSerializer(serializers.Serializer):
         user = User.objects.get(id=user_id)
         user.set_password(password)
         user.save()
-        
+
 class AllUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
