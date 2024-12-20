@@ -86,7 +86,6 @@ class ProductBuySerializer(serializers.Serializer):
 
             user_account.balance -= buying_cost
             user_account.save(update_fields=['balance'])
-            print("User account balance -- ",user_account.balance)
 
             Transaction.objects.create(
                 account=user_account,
@@ -95,8 +94,6 @@ class ProductBuySerializer(serializers.Serializer):
                 transaction_type='Pay'
             )
 
-            # Crediting the seller
-            print("Seller account balance -- " ,seller_full_account.balance)
             seller_full_account.balance += buying_cost
             seller_full_account.save(update_fields=['balance'])
 
