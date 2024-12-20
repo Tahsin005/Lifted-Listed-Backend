@@ -1,4 +1,5 @@
 TRANSACTION_TYPE = [
-    ("Deposit", "Deposit"), 
+    ("Deposit", "Deposit"),
     ("Pay", "Pay"),
+    ("Receive", "Receive"),
 ]

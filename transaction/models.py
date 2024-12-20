@@ -10,6 +10,6 @@ class Transaction(models.Model):
     balance_after_transaction = models.DecimalField(max_digits=12, decimal_places=2)
     transaction_type = models.CharField(choices=TRANSACTION_TYPE, max_length=100)
     timestamp = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         ordering = ['timestamp']
