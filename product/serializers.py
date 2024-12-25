@@ -17,10 +17,10 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
-    added_by = UserSerializer()
-    bought_by = UserSerializer(allow_null=True)
-    categories = CategorySerializer(many=True)
-    
+    # added_by = UserSerializer()
+    # bought_by = UserSerializer(allow_null=True)
+    # categories = CategorySerializer(many=True)
+
     class Meta:
         model = Product
         fields = [

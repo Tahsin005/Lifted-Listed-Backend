@@ -49,7 +49,12 @@ class UserRegistrationSerializerViewSet(APIView):
             email.send()
 
             return Response('Check your email for confirmation')
-        return Response(serializer.errors)
+        else:
+            print('Bodda cot khaise....')
+            print('from serializer')
+            print(serializer.errors)
+            print('from serializer')
+            return Response(serializer.errors)
 
 from django.shortcuts import render
 from django.utils.http import urlsafe_base64_decode
