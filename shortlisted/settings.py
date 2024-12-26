@@ -91,6 +91,12 @@ DATABASES = {
         default='postgresql://bazzar_buddy_user:sWakT9QTCYJAj6FwOLwKyfzPTVz2MZsK@dpg-cthq9hlumphs73fl6ph0-a.oregon-postgres.render.com/bazzar_buddy',
     )
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 
