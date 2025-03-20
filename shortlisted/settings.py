@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'shortlisted.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://bazzar_buddy_eghj_user:bYEcatrVXwPuuJkWk5okmbdcSY01ocrB@dpg-cup563l6l47c73cj1pc0-a.oregon-postgres.render.com/bazzar_buddy_eghj',
+        default='postgresql://bazzar_buddy_3ici_user:dbrSYAiGw6dzO8B5IrJr2DFxeXkDUYmU@dpg-cve52bhc1ekc73ecmtdg-a.oregon-postgres.render.com/bazzar_buddy_3ici',
     )
 }
 # DATABASES = {
